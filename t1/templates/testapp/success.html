@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  </head>
+  <body>
+  {%for message in messages%}
+  <font color="red">{{message}}</font>
+  {% endfor %}
+
+    <h1>successfully logined</h1>
+    <div class="jumbotron">
+    {%if check%}
+    <ol>
+       <li><font color="red">hello,{{check.fname}}</font></li>
+       <li>your mobilenumber registered is:{{check.mobile_num}}</li>
+       <li>your mail registered is:{{check.mail}}</li>
+       <li>adress:{{check.address}}</li>
+      
+       <strong><a href="{% url 'updateuser' check.mail %}">edit</a></strong>
+
+      <a href="{% url 'dltuser' check.mail %}">delete</a>
+    </ol>
+   
+    {% endif %}
+
+    <a class="btn btn-primary btn-lg" href="/logout" role="button">logout</a>
+  </div>
+  </body>
+</html>
